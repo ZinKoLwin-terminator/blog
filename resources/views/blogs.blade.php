@@ -12,7 +12,7 @@
     <div>
         <p>
             published at -
-            {{$blog->created_at}}
+            {{$blog->created_at->diffForHumans()}}
         </p>
         <p>
             {{$blog->intro}}
