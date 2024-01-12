@@ -6,13 +6,13 @@
 @section('content')
 @foreach($blogs as $blog)
 <div>
-    <h1><a href="blogs/{{$blog->slug}}">
+    <h1><a href="blogs/{{$blog->id}}">
             {{$blog->title}}
         </a></h1>
     <div>
         <p>
             published at -
-            {{$blog->date}}
+            {{$blog->created_at}}
         </p>
         <p>
             {{$blog->intro}}
