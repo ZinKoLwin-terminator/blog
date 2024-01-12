@@ -16,7 +16,7 @@ use App\Models\Category;
 
 Route::get('/', function () {
     return view('blogs', [
-        'blogs' => Blog::all()
+        'blogs' => Blog::with('category')->get() //eager load//laxy loading
     ]);
 });
 
