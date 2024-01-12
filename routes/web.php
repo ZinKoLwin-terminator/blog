@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,5 +31,11 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 
     return view('blogs', [
         'blogs' => $category->blogs
+    ]);
+});
+
+Route::get('/users/{user}', function (User $user) {
+    return view('blogs', [
+        'blogs' => $user->blogs
     ]);
 });

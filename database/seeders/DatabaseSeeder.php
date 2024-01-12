@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory()->create();
+
         $frontend = Category::factory()->create(['name' => 'frontend']);
         $backend = Category::factory()->create(['name' => 'backend']);
         Blog::factory(2)->create(['category_id' => $frontend->id]);

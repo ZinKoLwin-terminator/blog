@@ -19,6 +19,7 @@ class BlogFactory extends Factory
     {
         return [
             'category_id' => Category::factory(),
+            'user_id' => \App\Models\User::factory(),
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug(),
             'intro' => $this->faker->sentence(),
