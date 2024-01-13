@@ -17,7 +17,7 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('blogs', [
-        'blogs' => Blog::with('category')->get() //eager load//laxy loading
+        'blogs' => Blog::all() //eager load//laxy loading
     ]);
 });
 
