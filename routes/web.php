@@ -17,7 +17,7 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('blogs', [
-        'blogs' => Blog::all() //eager load//laxy loading
+        'blogs' => Blog::latest()->get() //eager load//laxy loading
     ]);
 });
 
@@ -34,7 +34,7 @@ Route::get('/categories/{category:slug}', function (Category $category) {
     ]);
 });
 
-Route::get('/users/{user}', function (User $user) {
+Route::get('/users/{user:username}', function (User $user) {
     return view('blogs', [
         'blogs' => $user->blogs
     ]);
