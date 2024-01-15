@@ -17,10 +17,12 @@
         <option value="">Filter by Tag</option>
       </select> --}}
     </div>
-    <form action="" class="my-3">
+    <form action="" class="my-3" method="GET">
       <div class="input-group mb-3">
         <input
           type="text"
+          name="search"
+          value="{{request('search')}}"
           autocomplete="false"
           class="form-control"
           placeholder="Search Blogs..."
