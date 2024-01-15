@@ -18,6 +18,6 @@
       <p class="card-text">
        {{$blog->intro}}
       </p>
-      <a href="./single.html" class="btn btn-primary">Read More</a>
+      <a href="/blogs/{{$blog->slug}}" class="btn btn-primary">Read More</a>
     </div>
 </div>
