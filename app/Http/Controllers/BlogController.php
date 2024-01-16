@@ -8,16 +8,13 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    function index()
+    public function index()
     {
-
         return view('blogs', [
-            'blogs' => $this->getBlogs(),
-            'categories' => Category::all(),
-
+            'blogs' => Blog::latest()->filter(request(['search']))->get(),
+            'categories' => Category::all()
         ]);
     }
-
     function  show(Blog $blog)
     {
         return view('blog', [
@@ -26,13 +23,16 @@ class BlogController extends Controller
         ]);
     }
 
-    protected function getBlogs()
-    {
-        $blogs = Blog::latest();
-        if (request('search')) {
-            $blogs = $blogs->where('title', 'LIKE', '%' . request('search') . '%')
-                ->orWhere('body', 'LIKE', '%' . request('search') . '%');
-        }
-        return $blogs->get();
-    }
+    // protected function getBlogs()
+    // {
+    //     return  Blog::latest()->filter()->get();
+    //     // $query = Blog::latest();
+
+    //     // $query->when(request('search'), function ($query, $search) {
+    //     //     $query->where('title', 'LIKE', '%' . $search . '%')
+    //     //         ->orWhere('body', 'LIKE', '%' . $search . '%');
+    //     // });
+    //     // return $query->get();
+
+    // }
 }
