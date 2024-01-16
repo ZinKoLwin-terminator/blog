@@ -14,6 +14,21 @@
           class="form-control"
           placeholder="Search Blogs..."
         />
+        @if (request('category'))
+        <input
+        type="hidden"
+        name="category"
+        value="{{request('category')}}"
+       />
+        @endif
+
+        @if (request('username'))
+        <input
+        type="hidden"
+        name="username"
+        value="{{request('username')}}"
+       />
+        @endif
         <button
           class="input-group-text bg-primary text-light"
           id="basic-addon2"
