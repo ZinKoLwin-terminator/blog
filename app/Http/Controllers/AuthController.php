@@ -58,6 +58,12 @@ class AuthController extends Controller
             ]
         );
 
-        @dd($formData);
+        if (auth()->attempt($formData)) {
+            return redirect('/')->with('success', 'Welcome Back');
+        } else {
+            return redirect()->back()->withErrors([
+                'email' => 'User Credentials Wrong'
+            ]);
+        }
     }
 }
