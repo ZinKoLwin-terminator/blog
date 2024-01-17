@@ -18,6 +18,7 @@
                                 aria-describedby="emailHelp"
                                 name="name"
                                 value="{{old('name')}}"
+                                required
                             >
                             @error('name')
                             <p class="text-danger">{{$message}}</p>
