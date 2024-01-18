@@ -32,23 +32,7 @@
       <section class="container">
         <div class="col-md-8 mx-auto">
          @auth
-         <x-card-wrapper >
-            <form action="/blogs/{{$blog->slug}}/comments" method="POST">
-                @csrf
-                <div class="mb-3">
-
-                  <textarea name="body" id="" cols="30" class="form-control border border-0" rows="10" placeholder="saysomething..."></textarea>
-                    @error('body')
-                        <p class="text-danger">{{$message}}</p>
-                    @enderror
-                </div>
-
-               <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">Submit</button>
-               </div>
-              </form>
-
-          </x-card-wrapper>
+         <x-comment-form :blog="$blog" />
           @else
           <p class="text-center">Please <a href="/login">login</a> to participate in this discussion.</p>
          @endauth
@@ -56,7 +40,9 @@
 
         </div>
     </section>
+      @if ($blog->comments->count())
       <x-comments :comments="$blog->comments" />
+      @endif
      <x-subscribe />
      <x-blogs_you_may_like :randomBlogs="$randomBlogs" />
 </x-layout>

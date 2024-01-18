@@ -20,9 +20,7 @@
                                 value="{{old('name')}}"
                                 required
                             >
-                            @error('name')
-                            <p class="text-danger">{{$message}}</p>
-                            @enderror
+                            <x-error name="name" />
                         </div>
                         <div class="mb-3">
                             <label
@@ -30,6 +28,7 @@
                                 class="form-label"
                             >Username</label>
                             <input
+                            required
                                 type="text"
                                 class="form-control"
                                 id="exampleInputEmail1"
@@ -37,9 +36,7 @@
                                 name="username"
                                 value="{{old('username')}}"
                             >
-                            @error('username')
-                            <p class="text-danger">{{$message}}</p>
-                            @enderror
+                            <x-error name="username" />
                         </div>
                         <div class="mb-3">
                             <label
@@ -47,6 +44,7 @@
                                 class="form-label"
                             >Email address</label>
                             <input
+                            required
                                 type="email"
                                 class="form-control"
                                 id="exampleInputEmail1"
@@ -54,9 +52,7 @@
                                 name="email"
                                 value="{{old('email')}}"
                             >
-                            @error('email')
-                            <p class="text-danger">{{$message}}</p>
-                            @enderror
+                            <x-error name="email" />
                         </div>
                         <div class="mb-3">
                             <label
@@ -64,15 +60,14 @@
                                 class="form-label"
                             >Password</label>
                             <input
+                            required
                                 type="password"
                                 class="form-control"
                                 id="exampleInputPassword1"
                                 name="password"
 
                             >
-                            @error('password')
-                            <p class="text-danger">{{$message}}</p>
-                            @enderror
+                            <x-error name="password" />
                         </div>
                         <button
                             type="submit"
