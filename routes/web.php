@@ -37,3 +37,8 @@ Route::post('/login', [AuthController::class, 'post_login'])->middleware('guest'
 Route::post('/blogs/{blog:slug}/comments', [CommentController::class, 'store']);
 
 Route::post('/blogs/{blog:slug}/subscription', [BlogController::class, 'subscriptionHandler']);
+
+
+Route::get('/admin/blogs/create', [BlogController::class, 'create'])->middleware('admin');
+
+Route::post('/admin/blogs/store', [BlogController::class, 'store'])->middleware('admin');
