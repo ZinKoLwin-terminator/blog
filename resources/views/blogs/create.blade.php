@@ -4,6 +4,7 @@
 
         <x-card-wrapper>
             <form
+            enctype="multipart/form-data"
                 action="/admin/blogs/store"
                 method="POST"
             >
@@ -66,6 +67,19 @@
                     <x-error name="body" />
                 </div>
 
+                <div class="mb-3">
+                    <label
+                        for="thumbnail"
+                        class="form-label"
+                    >Body</label>
+                    <input
+                        type="file"
+                        name="thumbnail"
+                        id="thumbnail"
+                        class="form-control"
+                    >
+                    <x-error name="thumbnail" />
+                </div>
                 <div>
                     <label
                         for="category"
@@ -74,7 +88,7 @@
                     <select
                         name="category_id"
                         id="category"
-                        class="form-control"
+                        class="form-select"
                     >
                         @foreach ($categories as $category)
                         <option {{$category->id==old('category_id') ? 'selected':''}}
@@ -82,6 +96,7 @@
                         </option>
                         @endforeach
                     </select>
+                    <x-error name="category_id" />
                 </div>
                 <div class="d-flex justify-content-start mt-3">
                     <button
