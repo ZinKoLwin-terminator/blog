@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $mgmg = User::factory()->create(['name' => 'mgmg', 'username' => 'mgmg']);
+        $mgmg = User::factory()->create(['name' => 'mgmg', 'email' => 'mgmg@gmail.com', 'username' => 'mgmg']);
         $aungaung = User::factory()->create(['name' => 'aungaung', 'username' => 'aungaung']);
         $frontend = Category::factory()->create(['name' => 'frontend', 'slug' => 'frontend']);
         $backend = Category::factory()->create(['name' => 'backend', 'slug' => 'backend']);

@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'avatar' => 'https://i.pravatar.cc/150?u=' . $this->faker->randomNumber(1, 100),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make('12345678'),
             'remember_token' => Str::random(10),
         ];
     }

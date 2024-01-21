@@ -1,94 +1,27 @@
 <x-layout>
     <h3 class="my-3 text-center">Blog create form</h3>
     <div class="col-md-8 mx-auto">
-
         <x-card-wrapper>
             <form
-            enctype="multipart/form-data"
+                enctype="multipart/form-data"
                 action="/admin/blogs/store"
                 method="POST"
             >
                 @csrf
-                <div class="mb-3">
-                    <label
-                        for="title"
-                        class="form-label"
-                    >Title</label>
-                    <input
-                        id="title"
-                        type="text"
-                        class="form-control"
-                        name="title"
-                        value="{{old('title')}}"
-                    >
-                    <x-error name="title" />
-                </div>
-                <div class="mb-3">
-                    <label
-                        for="slug"
-                        class="form-label"
-                    >Slug</label>
-                    <input
-                        id="slug"
-                        required
-                        type="text"
-                        class="form-control"
-                        name="slug"
-                        value="{{old('slug')}}"
-                    >
-                    <x-error name="slug" />
-                </div>
-                <div class="mb-3">
-                    <label
-                        for="intro"
-                        class="form-label"
-                    >Intro</label>
-                    <input
-                        id="intro"
-                        type="text"
-                        class="form-control"
-                        name="intro"
-                        value="{{old('intro')}}"
-                    >
-                    <x-error name="intro" />
-                </div>
-                <div class="mb-3">
-                    <label
-                        for="body"
-                        class="form-label"
-                    >Body</label>
-                    <textarea
-                        name="body"
-                        id="body"
-                        cols="30"
-                        rows="10"
-                        class="form-control"
-                    >{{old('body')}}</textarea>
-                    <x-error name="body" />
-                </div>
-
-                <div class="mb-3">
-                    <label
-                        for="thumbnail"
-                        class="form-label"
-                    >Body</label>
-                    <input
-                        type="file"
-                        name="thumbnail"
-                        id="thumbnail"
-                        class="form-control"
-                    >
-                    <x-error name="thumbnail" />
-                </div>
-                <div>
-                    <label
-                        for="category"
-                        class="form-label"
-                    >Category</label>
+                <x-form.input name="title" />
+                <x-form.input name="slug" />
+                <x-form.input name="intro" />
+                <x-form.textarea name="body" />
+                <x-form.input
+                    name="thumbnail"
+                    type="file"
+                />
+                <x-form.input-wrapper>
+                    <x-form.label name="category" />
                     <select
                         name="category_id"
                         id="category"
-                        class="form-select"
+                        class="form-control"
                     >
                         @foreach ($categories as $category)
                         <option {{$category->id==old('category_id') ? 'selected':''}}
@@ -97,7 +30,7 @@
                         @endforeach
                     </select>
                     <x-error name="category_id" />
-                </div>
+                </x-form.input-wrapper>
                 <div class="d-flex justify-content-start mt-3">
                     <button
                         type="submit"
