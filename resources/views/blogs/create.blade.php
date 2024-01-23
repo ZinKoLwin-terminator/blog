@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin-layout>
     <h3 class="my-3 text-center">Blog create form</h3>
     <div class="col-md-8 mx-auto">
         <x-card-wrapper>
@@ -40,4 +40,4 @@
             </form>
         </x-card-wrapper>
     </div>
-</x-layout>
+</x-admin-layout>
